@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage[fleqn]{mathtools}
+\usepackage{a4wide}
+\usepackage{fancyhdr} % Custom headers and footers
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{parskip}
+
+\usepackage[adobe-utopia]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\usepackage{titlesec} % www.ctan.org/tex-archive/macros/latex/contrib/titlesec/titlesec.pdf
+
+% Below "\section" can be replaced with "\subsection" and "\subsubsection"
+% in order to customize the corresponding headings
+
+
+
+\pagestyle{fancyplain}
+\fancyhead[L]{HW14/15: 02/24/2014}
+\fancyhead[C]{University of Wisconsin-Madison}
+\fancyhead[R]{Professor Arnold Miller}
+\fancyfoot[L]{Taylor Lee}
+\fancyfoot[C]{MATH 542}
+\fancyfoot[R]{tdlee2@wisc.edu}
+\newtheoremstyle{moo}
+{10pt}
+{10pt}
+{}
+{}
+{\bfseries}
+{:}
+{\newline }
+{}
+
+
+\theoremstyle{moo}
+\newtheorem*{prob}{Problem}
+\newtheorem*{sol}{Solution}
+\newtheorem*{theorem}{Theorem}
+
+\def\zz{{\mathbb Z}}
+\def\su{\subseteq}
+
+
+\begin{document}
+\fontencoding {T1}
+\fontfamily {put}
+\fontseries {\seriesdefault}
+\fontshape {\shapedefault}
+%\fontsize {size} {baselineskip} 
+\selectfont
+
+\title{\usefont{T1}{put}{b}{n} Math 542-Modern Algebra II}
+\date{Febuary 24, 2014}         % used by \maketitle
+\author{Taylor Lee}      % used by \maketitle                    % used by \maketitle
+\maketitle                      % automatic title!
+
+
+
+\begin{prob}
+(Mon Feb 17) Suppose for every $x\in G$ that $x^2=e$.  Prove
+that $G$ is abelian.
+\end{prob}
+
+\begin{prob}
+(Mon Feb 17) Suppose $H\su G$ is subgroup of index 2, i.e., 
+$[G:H]=2$.  Prove that it is a normal subgroup of $G$.
+\end{prob}
+
+
+
+\begin{sol}
+(a) First not that for any $x \in G$, we have 
+\[
+x^2 = e \Leftrightarrow x = x^{-1}
+\]
+
+So any element is equal to it's own inverse. Next, let $a,b \in G$. This implies that $ab \in G$ and
+
+\[
+\left( ab \right)^2 = e \Leftrightarrow abab = e \Leftrightarrow ab = b^{-1}a^{-1}  \Leftrightarrow ab = ba.
+\]
+
+Hence, $G$ is abelian, as $a,b$ are arbitrary and all the elements of $G$ commute.
+
+(b) Since the index of $H$ in $G$ is 2, we can create a homomorphism $G \rightarrow G/H$ such that an element of $h \in H \subset$ maps to $0$ and an element $g \notin H$ but $g \in G$ maps to $1$. Hence, $G/H \cong \zz/ 2 \zz$, and since such a homomorphism exists, we can see that $H$ must be normal.
+
+
+\end{sol}
+
+
+
+
+
+\end{document}   

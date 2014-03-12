@@ -1,0 +1,333 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage[fleqn]{mathtools}
+\usepackage{a4wide}
+\usepackage{fancyhdr} % Custom headers and footers
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{parskip}
+
+\usepackage[adobe-utopia]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\usepackage{titlesec} % www.ctan.org/tex-archive/macros/latex/contrib/titlesec/titlesec.pdf
+
+% Below "\section" can be replaced with "\subsection" and "\subsubsection"
+% in order to customize the corresponding headings
+
+
+
+\pagestyle{fancyplain}
+\fancyhead[L]{HW1: 01/31/2014}
+\fancyhead[C]{University of Wisconsin-Madison}
+\fancyhead[R]{Professor A. Miller}
+\fancyfoot[L]{Taylor Lee}
+\fancyfoot[C]{MATH 542}
+\fancyfoot[R]{tdlee2@wisc.edu}
+\newtheoremstyle{moo}
+{10pt}
+{10pt}
+{}
+{}
+{\bfseries}
+{:}
+{\newline }
+{}
+
+
+\theoremstyle{moo}
+\newtheorem{prob}{Problem}
+\newtheorem*{sol}{Solution}
+
+
+\begin{document}
+\fontencoding {T1}
+\fontfamily {put}
+\fontseries {\seriesdefault}
+\fontshape {\shapedefault}
+%\fontsize {size} {baselineskip} 
+\selectfont
+
+\title{\usefont{T1}{put}{b}{n} Math 542-Modern Algebra II}
+\date{January 31, 2014}         % used by \maketitle
+\author{Taylor Lee}      % used by \maketitle                    % used by \maketitle
+\maketitle                      % automatic title!
+
+\begin{prob} (Fri Jan 24) (a) Find an integer $x$ such that
+$x= 6 \mod 10$ and $x=15 \mod 21$ and $0\leq x\leq 210$.
+(b) Find the smallest positive integer $y$ such that 
+$y= 6 \mod 10$ and $y=15 \mod 21$ and $y= 8 \mod 11$.
+\end{prob}
+
+\begin{sol}
+(a) We will use the proof of the Chinese Remainder Theorem to create a number that is the sum of two integers, $x_1, x_2$, which satisfy: $x_1 \equiv 6 \pmod{10}$ and $x_2 \equiv 15 \pmod{21}$, as well as $x_1 \equiv 0 \pmod{10}$ and $x_2 \equiv 0 \pmod{21}$. This number is hence:
+\[
+x = x_1 + x_2 = 6 \cdot 21 \cdot 1 + 15 \cdot 10 \cdot 19 = 2976 \equiv 36 \pmod{210}
+\]
+This number, $x = 36$ satisfies our system of congruences.
+
+(b) We will use the proof of the Chinese Remainder Theorem to create a number that is the sum of three integers, $y_1,y_2,y_3$ which satisfy: $y_1 \equiv 6 \pmod{10}$, $y_2 \equiv 15 \pmod{21}$ and $y_3 \equiv 8 \pmod{11}$, as well as $y_1 \equiv 0 \pmod{21}$ and $y_1 \equiv 0 \pmod{11}$, $y_2 \equiv 0 \pmod{10}$ and $y_2 \equiv0 \pmod{21}$ and $y_3 \equiv 0 \pmod{10}$ and $y_3 \equiv 0 \pmod{11}$ repectivley. This number is hence:
+\[
+y = y_1 + y_2 + y_3 = 6 \cdot 231 + 15 \cdot 110 \cdot 17 + 8 \cdot 210 = 31116 \equiv 1086 \pmod{2310}
+\]
+
+This number, $y = 1086$, satisfies our system of congruences.
+\end{sol}
+
+\newpage
+
+\begin{prob}(Fri Jan 24)
+(a) Find integers $i,j$ such that there is no integer $x$ with
+$x= i \mod 6$ and $x= j \mod 15$.   (b) Find all pairs $i,j$
+with $i=0,1,\dots 5$ and $j=0,1,\ldots, 14$ such that there
+is an integer $x$ with $x= i \mod 6$ and $x= j \mod 15$.
+\end{prob}
+
+\begin{sol}
+
+First we will display the pairs $i,j$ for which there is no $x$ that satisfy the above system of congruences. 
+
+\begin{tabular}{lll}
+
+\begin{tabular}{|c|c|}
+
+\cline{1-2}
+$i$ & $j$ \\
+\cline{1-2}
+\cline{1-2}
+0 & 1 \\
+\cline{1-2}
+0 & 2 \\
+\cline{1-2}
+0 & 4 \\
+\cline{1-2}
+0 & 5 \\
+\cline{1-2}
+0 & 7 \\
+\cline{1-2}
+0 & 8 \\
+\cline{1-2}
+0 & 10 \\
+\cline{1-2}
+0 & 11 \\
+\cline{1-2}
+0 & 13 \\
+\cline{1-2}
+0 & 14 \\
+\cline{1-2}
+1 & 0 \\
+\cline{1-2}
+1 & 2 \\
+\cline{1-2}
+1 & 3 \\
+\cline{1-2}
+1 & 5 \\
+\cline{1-2}
+1 & 6 \\
+\cline{1-2}
+1 & 8 \\
+\cline{1-2}
+1 & 9 \\
+\cline{1-2}
+1 & 11 \\
+\cline{1-2}
+1 & 12 \\
+\cline{1-2}
+1 & 14 \\
+\cline{1-2}
+\end{tabular}
+&
+\begin{tabular}{|c|c|}
+
+\cline{1-2}
+$i$ & $j$ \\
+\cline{1-2}
+\cline{1-2}
+2 & 0 \\
+\cline{1-2}
+2 & 1 \\
+\cline{1-2}
+2 & 3 \\
+\cline{1-2}
+2 & 4 \\
+\cline{1-2}
+2 & 6 \\
+\cline{1-2}
+2 & 7 \\
+\cline{1-2}
+2 & 9 \\
+\cline{1-2}
+2 & 10 \\
+\cline{1-2}
+2 & 12 \\
+\cline{1-2}
+2 & 13 \\
+\cline{1-2}
+3 & 1 \\
+\cline{1-2}
+3 & 2 \\
+\cline{1-2}
+3 & 4 \\
+\cline{1-2}
+3 & 5 \\
+\cline{1-2}
+3 & 7 \\
+\cline{1-2}
+3 & 8 \\
+\cline{1-2}
+3 & 10 \\
+\cline{1-2}
+3 & 11 \\
+\cline{1-2}
+3 & 13 \\
+\cline{1-2}
+3 & 14 \\
+\cline{1-2}
+\end{tabular}
+
+&
+
+\begin{tabular}{|c|c|}
+
+\cline{1-2}
+$i$ & $j$ \\
+\cline{1-2}
+\cline{1-2}
+4 & 0 \\
+\cline{1-2}
+4 & 2 \\
+\cline{1-2}
+4 & 3 \\
+\cline{1-2}
+4 & 5 \\
+\cline{1-2}
+4 & 6 \\
+\cline{1-2}
+4 & 8 \\
+\cline{1-2}
+4 & 9 \\
+\cline{1-2}
+4 & 11 \\
+\cline{1-2}
+4 & 12 \\
+\cline{1-2}
+4 & 14 \\
+\cline{1-2}
+5 & 0 \\
+\cline{1-2}
+5 & 1 \\
+\cline{1-2}
+5 & 3 \\
+\cline{1-2}
+5 & 4 \\
+\cline{1-2}
+5 & 6 \\
+\cline{1-2}
+5 & 7 \\
+\cline{1-2}
+5 & 9 \\
+\cline{1-2}
+5 & 10 \\
+\cline{1-2}
+5 & 12 \\
+\cline{1-2}
+5 & 13 \\
+\cline{1-2}
+\end{tabular}
+
+\end{tabular}
+
+\newpage
+
+(b) Here we will display the pairs $i,j$ which have a solution $x$, as well as the solution $x$ itself:
+
+\hspace{1cm}
+
+\begin{tabular}{l  r}
+
+\begin{tabular}{|c|c|c|}
+
+\cline{1-3}
+$i$ & $j$ & $x$ \\
+\cline{1-3}
+\cline{1-3}
+0 & 0 & 0 \\
+\cline{1-3}
+0 & 3 & 18 \\
+\cline{1-3}
+0 & 6 & 6 \\
+\cline{1-3}
+0 & 9 & 24 \\
+\cline{1-3}
+0 & 12 & 12 \\
+\cline{1-3}
+1 & 1 & 1 \\
+\cline{1-3}
+1 & 4 & 19 \\
+\cline{1-3}
+1 & 7 & 7 \\
+\cline{1-3}
+1 & 10 & 25 \\
+\cline{1-3}
+1 & 13 & 13 \\
+\cline{1-3}
+2 & 2 & 2 \\
+\cline{1-3}
+2 & 5 & 20 \\
+\cline{1-3}
+2 & 8 & 8 \\
+\cline{1-3}
+2 & 11 & 26 \\
+\cline{1-3}
+2 & 14 & 14 \\
+\cline{1-3}
+
+\end{tabular}
+&
+\begin{tabular}{|c|c|c|}
+
+\cline{1-3}
+$i$ & $j$ & $x$ \\
+\cline{1-3}
+\cline{1-3}
+3 & 0 & 15 \\
+\cline{1-3}
+3 & 3 & 3 \\
+\cline{1-3}
+3 & 6 & 21 \\
+\cline{1-3}
+3 & 9 & 9 \\
+\cline{1-3}
+3 & 12 & 27 \\
+\cline{1-3}
+4 & 1 & 16 \\
+\cline{1-3}
+4 & 4 & 4 \\
+\cline{1-3}
+4 & 7 & 22 \\
+\cline{1-3}
+4 & 10 & 10 \\
+\cline{1-3}
+4 & 13 & 28 \\
+\cline{1-3}
+5 & 2 & 17 \\
+\cline{1-3}
+5 & 5 & 5 \\
+\cline{1-3}
+5 & 8 & 23 \\
+\cline{1-3}
+5 & 11 & 11 \\
+\cline{1-3}
+5 & 14 & 29 \\
+\cline{1-3}
+
+\end{tabular}
+
+
+\end{tabular}
+
+\end{sol}
+
+
+
+\end{document}   

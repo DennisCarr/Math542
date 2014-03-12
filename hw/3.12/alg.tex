@@ -1,0 +1,626 @@
+% LaTex2e
+\documentclass[12pt]{article}
+\usepackage{amssymb,latexsym,hyperref,verbatim}
+
+\def\nn{{\mathbb N}}
+\def\qq{{\mathbb Q}}
+\def\div{\slash}
+\def\span{{\rm span}}
+\def\al{\alpha}
+\def\be{\beta}
+\def\la{\lambda}
+\def\si{\sigma}
+\def\zz{{\mathbb Z}}
+\def\rr{{\mathbb R}}
+\def\cc{{\mathbb C}}
+\def\ss{{\cal G}}
+\def\ii{{\cal F}}
+\def\al{\alpha}
+\def\be{\beta}
+\def\si{\sigma}
+\def\ga{\gamma}
+\def\de{\delta}
+\def\pr{^\prime}
+\def\span{{ \rm span }}
+\def\isom{\simeq}
+\def\su{\subseteq}
+\def\st{\;:\;}
+\def\aut{{\rm aut}}
+\def\fix{{\rm fix}}
+\def\normal{\triangleleft}
+\def\pf{{\bf Proof:}\par\noindent}
+\def\qed{\par\noindent {\bf :foorP}}
+\def\sm{\setminus}
+\def\mod{\mbox{ mod }}
+
+\def\ra{\rangle}
+\def\la{\langle}
+
+\def\comb(#1,#2){
+\left(
+\begin{array}{c}
+#1 \\
+#2 
+\end{array}
+\right)
+}
+
+
+
+%beginthms
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{theor}[theorem]{Theorem}
+\newtheorem{thm}[theorem]{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{define}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{ques}[theorem]{Question}
+\newtheorem{quest}[theorem]{Question}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{examp}[theorem]{Example}
+
+%endthms
+
+\newtheorem{prob}{Problem}
+
+
+
+\newenvironment{enum}
+{\begin{list}{(\alph{enumi})}
+{\usecounter{enumi}\setlength{\rightmargin}{\leftmargin}}}
+{\end{list}}
+
+
+\begin{document}
+
+\noindent  Last revised: \today
+
+\begin{flushright}
+  A.Miller $\;\;\;\;$  M542 \\
+  www.math.wisc.edu/$\sim$miller/\\
+\end{flushright}
+
+%thmcutbegin
+
+\bigskip
+Each Problem is due one week from the date it is assigned.
+Do not hand them in early.
+Please put them on the desk in front of the room at the
+beginning or end of class. Include the statement of the problem
+as part of your solution.
+
+The date the problem was assigned in class is in parentheses.
+
+\bigskip
+
+%thmcutend
+
+\begin{theorem}
+(Chinese remainder theorem) Given $n,m$ relatively prime integers for
+every $i,j\in\zz$ there is an $x\in\zz$ such that
+$x=i$ mod  $n$ and $x=j$ mod  $m$.
+\end{theorem}
+
+
+
+\begin{prob} (Fri Jan 24) (a) Find an integer $x$ such that
+$x= 6 \mod 10$ and $x=15 \mod 21$ and $0\leq x\leq 210$.
+(b) Find the smallest positive integer $y$ such that 
+$y= 6 \mod 10$ and $y=15 \mod 21$ and $y= 8 \mod 11$.
+\end{prob}
+
+\begin{prob}(Fri Jan 24)
+(a) Find integers $i,j$ such that there is no integer $x$ with
+$x= i \mod 6$ and $x= j \mod 15$.   (b) Find all pairs $i,j$
+with $i=0,1,\dots 5$ and $j=0,1,\ldots, 14$ such that there
+is an integer $x$ with $x= i \mod 6$ and $x= j \mod 15$.
+\end{prob}
+
+
+\begin{theorem}
+$\zz_n\times\zz_m\isom \zz_{nm}$ iff $n,m$ are relatively prime.
+\end{theorem}
+
+\begin{lemma}
+Suppose $n,m$ are relatively prime, $G$ is a finite abelian group such that
+$x^{nm}=e$ for every $x\in G$.  Let $G_n=\{x\in G\st x^n=e\}$ and
+$G_m=\{x\in G\st x^m=e\}$.  Then
+\begin{itemize}
+\item $G_n$ and $G_m$ are subgroups of $G$,
+\item $G_n\cap G_m=\{e\}$,
+\item $G_nG_m=G$, and therefore
+\item $G\isom G_n\times G_m$
+\end{itemize}
+\end{lemma}
+
+\begin{cor} (Decomposition into $p$-groups)
+Suppose $G$ is an abelian group and $|G|=p_1^{i_1}\cdot p_2^{i_2}\cdots p_n^{i_n}$
+where $p_1<p_2<\cdots <p_n$ are primes.  Then
+$$G\isom G_1\times G_2\times\cdots\times G_n$$ 
+where for each $j$ if $x\in G_j$ then $x^{n_j}=e$ where $n_j=p_j^{i_j}$.
+\end{cor}
+
+\begin{prob}
+(Mon Jan 27) Prove that for any $n$ there is only one abelian group (up to 
+isomorphism) of size $n$ iff $n$ is square-free.  Square-free
+mean that no $p^2$ divides $n$ for $p$ a prime.
+\end{prob}
+
+\begin{lemma}
+Suppose $G$ is a finite abelian $p$-group and $a\in G$ has maximum
+order, then there exists a subgroup $K\su G$ such that
+\begin{itemize}
+\item $\la a\ra\cdot K=G$ and 
+\item $\la a\ra\cap K=\{e\}$.
+\end{itemize}
+\end{lemma}
+
+The proof given in class is like the one in Gallian or Judson.
+
+\begin{theorem}
+Any finite abelian group is isomorphic to a product of cyclic
+groups each of which has prime-power order.
+\end{theorem}
+
+\begin{prob}(Wed Jan 29)
+Let $G$ be a finite abelian group.  Prove that the following are equivalent
+\begin{enumerate}
+\item For every subgroup $H$ of $G$ there is a subgroup $K$ of $G$ with
+$HK=G$ and $H\cap K=\{e\}$. 
+\item Every  element of $G$ has square-free order.
+\end{enumerate}
+\end{prob}
+
+%thmcutbegin
+
+Hint: Polya's Dictum: ``If you can't do a problem, then there is an
+easier problem you can't do.  Find it.''
+
+Lets call property (1) the Complementation Property for $G$
+or CP for short.  Here are some easier problems:
+\begin{enum}
+\item Prove that $C_{p^2}$ fails to have CP.
+\item Prove that $C_p\times C_p$ has CP.
+\item Let $|G|$ and $|H|$ be
+relatively prime.  Prove that $G\times H$ has CP iff both
+$G$ and $H$ have CP.
+\end{enum}
+
+%thmcutend
+
+\begin{theorem}(Uniqueness)
+Suppose 
+$$C_{p^{n_1}}\times C_{p^{n_1}}\times\cdot\times C_{p^{n_k}}\isom
+C_{p^{m_1}}\times C_{p^{m_1}}\times\cdot\times C_{p^{m_l}}$$
+where $n_1\geq n_2\geq \cdots n_k\geq 1$ and 
+$m_1\geq m_2\geq \cdots m_l\geq 1$.  Then $k=l$ and $n_i=m_i$ for
+all $i$.
+\end{theorem}
+
+\begin{prob}(Fri Jan 31)
+How many abelian groups of order 144 are there up to isomorphism?
+Explain.
+\end{prob}
+
+\begin{prob}
+(Mon Feb 3) Suppose $G_1,G_2,H_1,H_2$ are finite abelian groups,
+$G_1\times G_2\isom H_1\times H_2$ and $G_1\isom H_1$.
+Prove that $G_2\isom H_2$.
+\par Give a counterexample if the word finite is dropped, i.e.,
+$G_1\times G_2\isom H_1\times H_2$ and $G_1\isom H_1$ but $G_2$
+is not isomorphic to $H_2$.   
+\end{prob}
+
+%thmcutbegin
+
+\noindent 
+I do not know if problem 6 is true or false for finite non-abelian groups.
+
+%thmcutend
+
+\bigskip
+For the group $G$ acting on the set $X$
+the orbit of $a\in X$ is
+$$orb(a)=^{def}\{ga\st g\in G\}\su X.$$
+
+\begin{prop} Orbits are either disjoint or the same.
+\end{prop}
+
+\begin{prob}
+(Wed Feb 5) Prove or disprove:
+\par For any finite abelian groups $G_1$ and $G_2$ with
+subgroups, $H_1\su G_1$ and $H_2\su G_2$ such that $H_1\isom H_2$,
+if $G_1/H_1\not\isom G_2/H_2$ then $G_1\not\isom G_2$.
+\end{prob}
+
+For a given group action of group $G$ on set
+$X$, define $Stab(a)=\{g\in G\st ga=a\}$ for each $a\in X$.
+Called stabilizer or fixed subgroup.
+
+\begin{prop}
+$Stab(a)$ is a subgroup of $G$.
+\end{prop}
+
+\begin{prob}
+(Wed Feb 5) Prove that $Stab(ga)=g\,Stab(a)\,g^{-1}$.
+\end{prob}
+
+For $H\su G$ a subgroup the index of $H$, $[G:H]$ is the
+number of $H$-cosets, $|\{gH\st g\in G\}|$.  Lagrange's
+Theorem says $|G|=[G:H]\cdot |H|$.
+
+\begin{prop}
+(Orbit-stabilizer formula) $|orb(a)|=[G:Stab(a)]$.
+\end{prop}
+
+The conjugacy action of $G$ on $G$ is given by $(g,h) \to ghg^{-1}$.
+Under this action the orbits are called the conjugacy classes.
+$Z(G)$ the center of $G$ is the subgroup of all elements of
+$G$ which commute with every other element of $g$.  Equivalently
+it is the set of elements of $G$ with orbits (conjugacy classes) 
+of size one. $C(g)=Stab(g)$ is called the centralizer subgroup of $g$.
+
+\begin{theorem}
+(Class formula) If $conj(g_1),\;\cdots, \; conj(g_n)$ are the
+conjugacy classes of size greater
+than one, then
+$$|G|=|Z(G)| +\sum_{k=1}^n [G:C(g_k)]$$
+\end{theorem}
+
+\begin{theorem}
+(Cauchy) If $p$ is a prime which divides $|G|$, then $G$ has
+an element of order $p$.
+\end{theorem}
+
+\begin{prob}
+This is due in lecture on valentines day.  It will be graded
+in class so do not hand-in.
+
+\par\noindent (a) Suppose $G$ is a finite abelian group which contains an
+element which has non-square-free order. Prove that for some prime
+$p$ it has an element of order $p^2$.
+\par\noindent (b) Suppose $a$ is an element of a finite abelian group $G$ with
+order $p^2$ let $b=a^p$, let $H=<b>$ be the subgroup generated
+by $b$ and suppose $K$ is a subgroup of $G$ with $K\cap H=\{e\}$.
+Prove that $a$ is not an element of $HK$.
+\par\noindent (c) Suppose $G_1,G_2$ are finite abelian groups with $|G_1|$ and
+$|G_2|$ relatively prime.  Show that for any subgroup $H\su G_1\times G_2$
+there are subgroups $H_1\su G_1$ and $H_2\su G_2$ such that
+$H=H_1\times H_2$.   (Warning: the relatively prime hypothesis is
+necessary.)
+\par\noindent (d) Suppose $G_1,G_2$ are finite abelian groups with $|G_1|$ and
+$|G_2|$ relatively prime.  Show that if $G_1$ and $G_2$ both have
+the CP then $G_1\times G_2$ has CP.\footnote{CP is defined after Problem 4.}
+\par\noindent (e) Prove that $C_p\times C_p\times \cdots \times C_p$ has the CP.
+\par\noindent (f) Prove Problem 4.
+
+\end{prob}
+
+\begin{cor}
+Groups of order $p^2$ are abelian.
+\end{cor}
+
+\begin{thm}
+(Sylow 1) If $G$ is a finite group and $p^n$ divides $|G|$,
+then there exists a subgroup $H\su G$ with $|H|=p^n$.
+\end{thm}
+
+\begin{prop}
+Any two n-cycles in $S_N$ are conjugates.  If $\tau=c_1c_2\cdots c_n$
+and $\rho=c_1\pr c_2\pr \cdots c_n\pr$ are
+disjoint cycle decomposition with $|c_i|=|c_i\pr|$ all $i$, then
+$\tau$ and $\rho$ are conjugates.  Similarly for the converse.
+\end{prop}
+
+\begin{prob}
+(Mon Feb 10) Prove for any $n\geq 3$ that
+$Z(S_n)=\{id\}$.
+\end{prob}
+
+\begin{define}
+$H\su G$ is a $p$-subgroup iff its order is a power of $p$. $P\su G$
+is a $p$-Sylow subgroup of $G$ iff $|P|=p^n$ where $|G|=p^nm$ and
+$p$ does not divide $m$.
+\end{define}
+
+\begin{lemma}
+Suppose $P$ is a $p$-Sylow subgroup of $G$, $g\in G$ has
+order a power of $p$, and $gPg^{-1}=P$.  Then $g\in P$.
+\end{lemma}
+
+\begin{thm}
+(Sylow 2) If $G$ is a finite group, $H$ a p-subgroup of $G$, and $P$
+a $p$-Sylow subgroup of $G$, then there exists $g\in G$ such that
+$H\su gPg^{-1}$.
+\end{thm}
+
+\begin{cor} Let $G$ be a finite group such that $p$ divides $|G|$.
+\par (a) Any $p$-subgroup of $G$ is contained in a $p$-Sylow subgroup of $G$.
+\par (b) Any two $p$-Sylow subgroups of $G$ are conjugates.
+\par (c) Any two $p$-Sylow subgroups of $G$ are isomorphic.
+\par (d) A $p$-Sylow subgroup of $G$ is normal iff it is the only
+$p$-Sylow subgroup of $G$.
+\end{cor}
+
+\begin{thm}
+(Sylow 3) If $|G|=p^nm$ where $p$ does not divide $m$ and
+$n(p)$ is the number of $p$-Sylow subgroups of $G$, then:
+\par (a) $n(p)=[G:N(P)]$ for any $P$ a $p$-Sylow subgroup of $G$,
+\par (b) $n(p)$ divides $m$, and
+\par (c) $n(p)=1$ mod $p$
+\end{thm}
+
+\begin{prob}(Wed Feb 12)
+\par (a) Prove that there are no simple groups of order
+either $575$ or $272$.
+\par (b) For any prime $p$ prove there are no simple groups
+of order $p(p-1)$ or $p(p+2)$.
+\end{prob}
+
+\begin{thm}
+If $p<q$ are primes and $q$ is not $1$ mod $p$, then every
+group of order $pq$ is abelian.
+\end{thm}
+
+\begin{prob}
+(Fri Feb 14) Question (August J.) Suppose every subgroup
+of finite group $G$ is a normal subgroup.  Must $G$ be abelian?
+\end{prob}
+
+\begin{prob}
+(Fri Feb 14)
+\par (a) Suppose $P$ is a $p$-Sylow subgroup of $G$ and
+$H$ a subgroup such that $P\normal H$ and $H\normal G$.
+Prove that $P\normal G$.
+\par (b) If $K\normal H$ and $H\normal G$, does it follow
+that $K\normal G$?  Show that the answer is No.
+Consider $G=S_4$, $K=\{id,\si\}$ where $\si=(12)(34)$ and
+$H=\{id,\si,\tau,\rho\}$ where $\tau$ and $\rho$ are conjugates
+of $\si$.  Determine what $\tau$ and $\rho$ are and show
+that $K\normal H$ and $H\normal G$, but $K$ is not a normal subgroup
+of  $G$.
+\end{prob}
+
+\begin{thm}
+$aut(\zz_p,+_p)$ is isomorphic to 
+$(\zz_p\sm\{0\},\times_p)$ the multiplicative group
+of nonzero elements.
+\end{thm}
+
+\begin{examp}
+If $p<q$ are primes and $q=1$ mod $p$, then there is a twisted product of
+$\zz_p$ and $\zz_q$ which has order $pq$ and is not abelian.
+\end{examp}
+
+\begin{prob}
+(Mon Feb 17) Suppose for every $x\in G$ that $x^2=e$.  Prove
+that $G$ is abelian.
+\end{prob}
+
+\begin{prob}
+(Mon Feb 17) Suppose $H\su G$ is subgroup of index 2, i.e., 
+$[G:H]=2$.  Prove that it is a normal subgroup of $G$.
+\end{prob}
+
+\begin{thm}
+Suppose that $p(x)$ is a polynomial over the field $F$ and for some $\al\in F$
+$\;p(\al)=0$.  Then $p(x)=(x-\al)q(x)$ for
+some polynomial $q(x)$.
+\end{thm}
+
+\begin{cor}
+Any polynomial $p\in F[x]$ of degree $\leq n$ with more than $n$ roots
+must be identically zero.
+\end{cor}
+
+\begin{thm}
+Let the exponent of $G$ be the least $n$ such that
+$x^n=e$ for every $x\in G$.  If $G$ is finite abelian group then 
+$G$ is cyclic iff $exp(G)=|G|$.
+\end{thm}
+
+\begin{cor}
+The multiplicative group of a finite field is cyclic.
+\end{cor}
+
+\begin{prob}(Wed Feb 19)
+For $F$ a finite field call $a\in F$ a generator of $F$ iff
+every nonzero element of $F$ is a power of $a$.
+\par (a) Find a generator of $\zz_7$.
+\par (b) How many generators does $\zz_{17}$ have?
+\par (c) How many generators does $\zz_{31}$ have?
+\end{prob}
+
+\begin{thm}
+If $p<q$ are primes and $q=1$ mod $p$, then up to isomorphism
+there is a unique nonabelian group of order $pq$.
+\end{thm}
+
+
+For elementary results on vector spaces see:
+
+\url{http://www.math.wisc.edu/~miller/old/m542-00/vector.pdf}
+
+
+
+\begin{lemma}
+(Exchange Lemma) Suppose $\span(A\cup B)=V$ and $a\notin \span(A)$.
+Then there exists $b\in B$ such that $\span(A\cup\{a\}\cup(B\sm\{b\}))=V$.
+\end{lemma}
+
+\begin{thm}
+Every vector space has a basis.  Any two bases have the
+same cardinality.  Any set of $n+1$ vectors in a vector
+space of dimension $n$ is linearly dependent.
+\end{thm}
+
+\begin{cor}
+Any finite field $F$ of characteristic $p$ has cardinality
+$p^n$ for some integer $n$.
+\end{cor}
+
+\begin{prob}
+(Fri Feb 21) Prove that $v_1,v_2,\ldots,v_n$ are linearly dependent
+iff $v_1=\vec{0}$ or $v_{i+1}\in\span\{v_1,v_2,\ldots,v_i\}$
+for some $i$ with $1\leq i<n$.
+\end{prob}
+
+
+\begin{thm}
+(Kronecker) If $p(x)\in F[x]$ is a non-constant polynomial, then
+there exists a field $E\supseteq F$ and $\al\in E$ with
+$p(\al)=0$.
+\end{thm}
+
+\begin{prob}
+(Mon Feb 24) Let $R$ be a commutative ring with 1.  Let $I$ be
+a maximal ideal in $R$.  Suppose $ab=0$. Prove that $a\in I$ or 
+$b\in I$.
+\end{prob}
+
+\begin{prob}
+(Mon Feb 24) Consider $p(x)=x^3+x+1$ as a polynomial in $\zz_2[x]$.
+Suppose $p$ has a root $\al$ is in some field extension.  Construct
+the multiplication table for 
+$$\zz_2[\al]=^{def}\{a+b\al+c\al^2 \st a,b,c\in \zz_2\}$$
+\end{prob}
+
+
+\begin{cor}(Kronecker)
+If $p(x)\in F[x]$ is a polynomial of degree $n$, then
+there exists a field $E\supseteq F$ and $\al_i\in E$ such that
+$$p(x)=a(x-\al_1)(x-\al_2)\cdots (x-\al_n)$$
+\end{cor}
+
+\begin{thm}
+If $p(x)\in F[x]$ is irreducible and $\al,\be$ are roots in
+some extension fields of $F$ then $F(\al)$ and $F(\be)$ are
+isomorphic via an isomorphism which fixes $F$.
+\end{thm}
+
+\begin{cor}
+If  $p(x)\in F[x]$ is irreducible and splits in an extension field $E$
+of $F$ then the multiplicity of each root of $p$ is the same. 
+\end{cor}
+
+
+\begin{prob}
+(Wed Feb 26) Let $\al$ be transcendental over $\zz_2$.  Let
+$F=\zz_2(\al)$ and let $p(x)=x^2-\al$.  
+\par (a) Prove that $p$ is irreducible over $F$.
+\par (b) Prove that if $\be$ is a root of $p$ in some
+some extension field, then $p(x)=(x-\be)^2$.
+\par (c) Suppose that $F$ is a finite field of characteristic $2$.
+Prove that for every $a\in F$ there is a $b\in F$ such that $b^2=a$.
+\par (d)  Suppose that $F$ is a finite field of odd characteristic.
+Prove that there exists $a\in F$ for every $b\in F$ such that $b^2\neq a$.
+\par (e) Find a field $F$ and an irreducible polynomial $p(x)$ of
+degree three such that in any extension field in which $p$ splits
+there exist a $\be$ such that $p(x)=(x-\be)^3$.
+\end{prob}
+
+\begin{thm}
+The formal derivative for an abstract polynomial $f(x)\in F[x]$ satisfies
+the usual derivative laws:
+\begin{enum}
+\item If $a\in F$ and $f\in F[x]$, then $(af)\pr=af\pr$.
+\item If $f,g\in F[x]$, then $(f+g)\pr=f\pr+g\pr$.
+\item If $f,g\in F[x]$, then $(fg)\pr=f\pr g+fg\pr$.
+\end{enum}
+\end{thm}
+
+\begin{prob}
+(Fri Feb 28) Prove that the formal derivative for polynomials
+in $F[x]$ satisfies 
+\begin{enum}
+\item The power rule: $(f^n)\pr =n(f^{n-1})f\pr$
+\item The chain rule: $f(g(x))\pr=f\pr(g(x))g\pr(x)$
+\end{enum}
+\end{prob}
+
+\begin{thm}
+For any $\al\in F$ and $f\in F[x]$ $\;\;\;\;$
+\par $\al$ is repeated root of $f$ iff it is a root of $f\pr$.
+\end{thm}
+
+\begin{cor}
+The roots of an irreducible polynomial in a field of characteristic
+zero, are always distinct.
+\end{cor}
+
+\begin{lemma}
+If $E$ is any field of characteristic $p$, then for any $\al,\be\in E$
+$$(\al+\be)^{p^n}=\al^{p^n}+\be^{p^n}$$
+\end{lemma}
+
+\begin{thm}
+For any $p^n$ and there is a 
+field $F$ with $|F|=p^n$.
+\end{thm}
+
+\begin{prob}
+(Mon Mar 3) Prove for any prime $p$ and positive integer $n$
+that $p$ divides $\comb(p^n,k)$ for any $k$ with $0<k<p^n$.
+\end{prob}
+
+\begin{define}
+For fields $F\su E$ define $[E:F]$ to be the dimension
+of $E$ viewed as a vector space over $F$.
+\end{define}
+
+\begin{thm}
+For fields $F\su K\su E$
+$$[E:F]=[E:K]\cdot [K:F]$$
+\end{thm}
+
+\begin{thm}
+For $p(x)\in F[x]$ irreducible and $\al$ a root of $p$ in
+some extension field, $[F[\al]:F]$ is the degree of $p$.
+\end{thm}
+
+\begin{thm}
+If $E\supseteq F$ is the splitting field of some polynomial in $F[x]$,
+then $[E:F]$ is finite.
+\end{thm}
+
+\begin{thm}
+If $[E:F]$ is finite and $\al\in E$, then there is an irreducible
+polynomial $p\in F[x]$ with $p(\al)=0$.
+\end{thm}
+
+\begin{prob}
+(Wed Mar 5) $p$ is a prime and $n$ a positive integer.
+Prove:
+\par (a) If $F$ is a field such that $|F|=p^n$ and $m$ is a
+positive integer then there is a field $E$ with $F\su E$
+and $E=p^{nm}$.
+\par (b) If $F\su E$ are fields, $|F|=p^n$
+and $|E|=p^N$, then $n$ divides $N$.
+\end{prob}
+
+\begin{define}
+$\al$ is algebraic over $F$ iff it is the root of a nontrivial polynomial
+in $F[x]$.  A field $K$ is algebraically closed iff every nonconstant 
+polynomial $f\in K[x]$ has a root in $K$.
+\end{define}
+
+\begin{thm}
+If $F\su E$ are fields define
+$$K=\{\al\in E\st \al \mbox{ is algebraic over } F\}$$
+Then $K$ is a field and $F\su K\su F$.
+\end{thm}
+
+Steinitz proved that every field $F$ is a subfield of an algebraically
+closed field $K$.  This requires the Axiom of Choice.
+
+\begin{thm}
+Suppose $F\su K$ and $K$ is algebraically closed.  Let
+$E$ be the elements of $K$ which are algebraic over $F$.  Then
+$E$ is algebraically closed.
+\end{thm}
+
+
+
+\end{document}
